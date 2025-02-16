@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 10:51:17 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/16 13:26:41 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:19:13 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	multiple_parser(char **av, int ac);
 
 void	insert_args(char **av, int ac);
 void	insert_list(char **tab);
+
+void	check_input(char **tab);
 
 void	print_list(void);
 

@@ -6,11 +6,11 @@
 #    By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/02/16 15:54:34 by mcauchy          ###   ########.fr        #
+#    Updated: 2025/02/16 16:22:20 by mcauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES	=	push_swap.c singleton.c parsing.c free.c insertion.c
+FILES	=	push_swap.c singleton.c parsing.c free.c insertion.c checks.c
 
 SRC_DIR	=	srcs
 
