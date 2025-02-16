@@ -6,7 +6,7 @@
 #    By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/02/16 16:22:20 by mcauchy          ###   ########.fr        #
+#    Updated: 2025/02/16 17:55:16 by mcauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LDFLAGS	=	-Llibft -lft
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(MAKE) -C libft
+			$(MAKE) -C libft -j 4
 			$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
