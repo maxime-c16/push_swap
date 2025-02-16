@@ -6,7 +6,7 @@
 #    By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/02/16 14:05:46 by mcauchy          ###   ########.fr        #
+#    Updated: 2025/02/16 15:54:34 by mcauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME	=	push_swap
 
 CC		=	gcc
 
-CFLAGS	=	-g3 -Wall -Wextra -Werror
+CFLAGS	=	-g3
 
 DEBUG	=	-fsanitize=address
 
