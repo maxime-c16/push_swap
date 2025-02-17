@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 12:21:45 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/16 13:30:29 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/17 12:14:24 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,21 @@ void	insert_args(char **av, int ac)
 void	print_list(void)
 {
 	t_list	**lst;
+	t_list	*tmp;
 
 	lst = _lst();
+	tmp = *lst;
 	if (!*lst)
-		return ;
-	while (*lst)
 	{
-		if (!(*lst)->next)
-			printf("%d -> (null)\n", (*lst)->value);
+		ft_printf("(null)\n");
+		return ;
+	}
+	while (tmp)
+	{
+		if (!(tmp)->next)
+			ft_printf("%d -> (null)\n", (tmp)->value);
 		else
-			printf("%d -> ", (*lst)->value);
-		(*lst) = (*lst)->next;
+			ft_printf("%d -> ", (tmp)->value);
+		(tmp) = (tmp)->next;
 	}
 }

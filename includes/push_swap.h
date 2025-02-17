@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 10:51:17 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/17 11:44:35 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:13:21 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,12 @@ void	check_input(char **tab);
 void	check_multiple(char **av, int ac);
 
 void	print_list(void);
+
+void	push(t_list **lst_from, t_list **lst_to);
+void	swap(t_list **lst);
+void	rotate(t_list **lst);
+void	reverse_rotate(t_list **lst);
+
+void	execute_movements(t_list **a, t_list **b, char *str);
 
 #endif
