@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:19:39 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/17 11:08:16 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/17 11:43:35 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,32 @@ void	check_input(char **tab)
 		ft_free_tab(tab);
 		ft_putendl_fd("Error", 2);
 		exit(1);
+	}
+}
+
+void	check_multiple(char **av, int ac)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ac)
+	{
+		j = i + 1;
+		if (!str_is_digit(av[i]) || check_int_range(av[i]))
+		{
+			ft_putendl_fd("Error", 2);
+			exit(1);
+		}
+		while (j < ac)
+		{
+			if (!ft_strcmp(av[i], av[j]))
+			{
+				ft_putendl_fd("Error", 2);
+				exit(1);
+			}
+			j++;
+		}
+		i++;
 	}
 }

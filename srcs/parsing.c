@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:12:12 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/17 11:33:23 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/17 11:45:25 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	single_parser(char *line)
 
 void	multiple_parser(char **av, int ac)
 {
-	ft_putendl_fd("multiple_parser", 2);
-	return ;
+	check_multiple(av, ac);
+	insert_args(av, ac);
+	print_list();
 }
