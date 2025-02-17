@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:12:12 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/17 11:26:13 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/02/17 11:33:23 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	single_parser(char *line)
 	char	**tab;
 
 	tab = ft_split(line, ' ');
+	if (!tab)
+		return (ft_putendl_fd("Error", 2), exit(1));
 	check_input(tab);
 	insert_list(tab);
 	print_list();
