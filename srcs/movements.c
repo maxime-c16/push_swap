@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:51:18 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/17 12:53:39 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/03/03 14:26:02 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap(t_list **lst)
 	t_list	*second;
 	t_list	*third;
 
-	if (!*lst)
+	if (!lst || !*lst)
 		return ;
 	head = *lst;
 	second = head->next;
@@ -37,38 +37,37 @@ void	swap(t_list **lst)
 	*lst = second;
 }
 
-void	push(t_list **lst_from, t_list **lst_to)
+void	push(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
-	t_list	*head;
 
-	if (!*lst_from)
+	if (*src == NULL)
 		return ;
-	head = *lst_from;
-	tmp = head->next;
-	ft_lstadd_front(lst_to, head);
-	*lst_from = tmp;
+	tmp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = tmp;
 }
 
 void	rotate(t_list **lst)
 {
+	t_list	*stock;
 	t_list	*head;
-	t_list	*tmp;
 
-	if  (!*lst)
+	if (ft_lstsize(*lst) < 2)
 		return ;
 	head = *lst;
-	tmp = head->next;
+	stock = ft_lstlast(head);
+	*lst = head->next;
 	head->next = NULL;
-	*lst = tmp;
-	ft_lstadd_back(lst, head);
+	stock->next = head;
 }
 void	reverse_rotate(t_list **lst)
 {
 	t_list	*tmp;
 	t_list	*before_last;
 
-	if (!*lst)
+	if (!lst || !*lst)
 		return ;
 	before_last = beforelast(*lst);
 	tmp = before_last->next;
