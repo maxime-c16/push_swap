@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 11:12:12 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/03/16 14:27:30 by mcauchy          ###   ########.fr       */
+/*   Created: 2025/03/16 13:41:26 by mcauchy           #+#    #+#             */
+/*   Updated: 2025/03/16 13:41:36 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	single_parser(char *line)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	char	**tab;
+	int	i;
+	int	j;
 
-	tab = ft_split(line, ' ');
-	if (!tab)
-		return (ft_putendl_fd("Error", 2), exit(1));
-	check_input(tab);
-	insert_list(tab);
-	print_list(NULL);
-}
-
-void	multiple_parser(char **av, int ac)
-{
-	check_multiple(av, ac);
-	insert_args(av, ac);
-	normalize_list(_lst());
-	radix_sort(_lst());
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+				ft_swap(&tab[i], &tab[j]);
+			j++;
+		}
+		i++;
+	}
 }

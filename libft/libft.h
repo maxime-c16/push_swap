@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 12:45:04 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/16 12:00:37 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/03/16 13:47:57 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_list
 {
 	int				value;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -53,6 +54,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_bzero(void *b, size_t n);
+void	ft_swap(int *a, int *b);
+void	ft_sort_int_tab(int *tab, int size);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
