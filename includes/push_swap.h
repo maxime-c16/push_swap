@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 10:51:17 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/03/16 14:19:09 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:37:58 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	insert_list(char **tab);
 
 void	check_input(char **tab);
 void	check_multiple(char **av, int ac);
-
-void	print_list(t_list *maybenull);
 
 void	push(t_list **lst_from, t_list **lst_to);
 void	swap(t_list **lst);
