@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mov_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:53:48 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/03/16 14:13:21 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:45:23 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 static void	exec_swap(t_list **a, t_list **b, char c)
 {

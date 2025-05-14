@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+         #
+#    By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/09 17:39:45 by mcauchy           #+#    #+#              #
-#    Updated: 2025/03/16 13:48:05 by mcauchy          ###   ########.fr        #
+#    Updated: 2025/05/12 14:49:06 by macauchy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ CC				=	gcc
 
 CFLAGS			=	-Wall -Wextra -Werror -g3
 
+HEADER			=	libft.h
+
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJ) $(BONUS_OBJS)
@@ -40,7 +42,7 @@ $(NAME)			:	$(OBJ) $(BONUS_OBJS)
 					@ar rc $@ $^
 					@ranlib $@
 
-$(DIR_OBJ)/%.o	:	%.c
+$(DIR_OBJ)/%.o	:	%.c $(HEADER)
 					@mkdir -p $(@D)
 					@echo "Compiling $(notdir $<)..."
 					@$(CC) $(CFLAGS) -o $@ -c $<

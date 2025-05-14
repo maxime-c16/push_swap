@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+         #
+#    By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/03/16 14:38:58 by mcauchy          ###   ########.fr        #
+#    Updated: 2025/05/12 15:13:33 by macauchy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES	=	push_swap.c singleton.c parsing.c free.c insertion.c checks.c \
-			radix.c movements.c mov_utils.c radix_utils.c
+			radix.c movements.c mov_utils.c radix_utils.c radix_utils2.c \
 
 SRC_DIR	=	srcs
 
@@ -33,27 +33,32 @@ RM		=	/bin/rm -rf
 
 LDFLAGS	=	-Llibft -lft
 
+HEADER	=	include/push_swap.h
+
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(MAKE) -C libft
+			@make -C libft -j > /dev/null
 			$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
 				@mkdir -p $(OBJ_DIR)
-				$(CC) $(CFLAGS) -c $< -o $@
+				@$(CC) $(CFLAGS) -c $< -o $@
+				@echo "Compiling $(notdir $<)..."
 
 debug:		$(OBJS)
-			$(MAKE) -C libft
+			@make -C libft -j > /dev/null
 			$(CC) $(CFLAGS) $(DEBUG) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 clean:
-			$(MAKE) -C libft clean
-			$(RM) $(OBJ_DIR)
+			@make -C libft clean > /dev/null
+			@$(RM) $(OBJ_DIR)
+			@echo "Cleaning $(OBJ_DIR)/ ..."
 
 fclean:		clean
-			$(MAKE) -C libft fclean
-			$(RM) $(NAME)
+			@make -C libft fclean > /dev/null
+			@$(RM) $(NAME)
+			@echo "Cleaning $(NAME) ..."
 
 re:			fclean all
 

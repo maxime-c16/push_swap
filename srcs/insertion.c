@@ -3,27 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   insertion.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 12:21:45 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/03/16 14:39:23 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:45:23 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
-/**
- * Inserts the values from the given array of strings into a linked list.
- *
- * This function takes an array of strings `tab` and creates a new linked list
- * `list` by parsing each string as an integer and adding it to the list. If
- * any errors occur during the process, such as memory allocation failure or
- * invalid input, the function will clear the list, free the tab, print an
- * error message, and exit the program.
- *
- * @param tab An array of strings containing the values to be inserted into the
- *  list.
- */
 void	insert_list(char **tab)
 {
 	t_list	**lst;
