@@ -6,7 +6,7 @@
 #    By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/05/12 15:13:33 by macauchy         ###   ########.fr        #
+#    Updated: 2025/05/14 13:03:14 by macauchy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ HEADER	=	include/push_swap.h
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			@make -C libft -j > /dev/null
 			$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
