@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:19:39 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/12 14:45:23 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:58:57 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ static int	str_is_digit(char *str)
 
 	i = 0;
 	if (str[i] == '-')
+	{
 		i++;
+		if (str[i] == '0')
+			return (0);
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
