@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:38 by macauchy          #+#    #+#             */
-/*   Updated: 2025/05/12 16:17:10 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:42:42 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,12 @@ static void	push_back_b(t_list **a, t_list **b, int min)
 	if (pos < size / 2)
 	{
 		while ((*a)->value != min)
-		{
 			execute_movements(a, b, "ra");
-		}
 	}
 	else
 	{
 		while ((*a)->value != min)
-		{
 			execute_movements(a, b, "rra");
-		}
 	}
 	execute_movements(a, b, "pb");
 }
@@ -69,23 +65,25 @@ static int	find_min(void)
 	return (min);
 }
 
-void	sort_five(t_list **b)
+void	sort_five(void)
 {
 	int		min;
 	int		next_min;
 	t_list	**lst;
+	t_list	*b;
 
 	lst = _lst();
+	b = NULL;
 	min = find_min();
-	push_back_b(lst, b, min);
+	push_back_b(_lst(), &b, min);
 	next_min = find_min();
-	push_back_b(lst, b, next_min);
-	sort_three(lst);
-	execute_movements(lst, b, "pa");
-	execute_movements(lst, b, "pa");
-	if (lst && (*lst) && (*lst)->next)
+	push_back_b(_lst(), &b, next_min);
+	sort_three();
+	execute_movements(_lst(), &b, "pa");
+	execute_movements(_lst(), &b, "pa");
+	if (lst && *lst && (*lst)->next)
 	{
 		if ((*lst)->value > (*lst)->next->value)
-			execute_movements(lst, b, "sa");
+			execute_movements(_lst(), &b, "sa");
 	}
 }

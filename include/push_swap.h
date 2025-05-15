@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 10:51:17 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/12 16:16:44 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:39:28 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	normalize_list(t_list **lst);
 void	radix_sort(t_list **lst);
 
 void	free_singleton(void);
-void	sort_small(int size, t_list **b);
-void	sort_three(t_list **l);
-void	sort_five(t_list **b);
+void	sort_small(int size);
+void	sort_three(void);
+void	sort_five(void);
 int		is_sorted(t_list **lst);
 
 #endif

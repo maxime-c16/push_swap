@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 13:16:38 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/12 16:08:53 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:41:15 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	radix_sort(t_list **lst)
 	tmp2 = NULL;
 	if (ft_lstsize(tmp) <= 5)
 	{
-		sort_small(ft_lstsize(tmp), &tmp2);
+		sort_small(ft_lstsize(tmp));
 		return ;
 	}
 	normalize_list(lst);

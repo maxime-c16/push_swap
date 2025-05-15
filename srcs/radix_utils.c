@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:38:16 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/12 16:17:00 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:40:48 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,27 @@ int	get_max_value(t_list **lst)
 	return (0);
 }
 
-void	sort_three(t_list **l)
+void	sort_three(void)
 {
 	int		max;
-	t_list	*lst;
 
-	lst = *l;
-	max = get_max_value(&lst);
-	if (lst->value == max)
-		execute_movements(&lst, NULL, "ra");
-	else if (lst->next->value == max)
-		execute_movements(&lst, NULL, "rra");
-	if (lst->value > lst->next->value)
-		execute_movements(&lst, NULL, "sa");
+	max = get_max_value(_lst());
+	if ((*_lst())->value == max)
+		execute_movements(_lst(), NULL, "ra");
+	else if ((*_lst())->next->value == max)
+		execute_movements(_lst(), NULL, "rra");
+	if ((*_lst())->value > (*_lst())->next->value)
+		execute_movements(_lst(), NULL, "sa");
 }
 
-void	sort_small(int size, t_list **b)
+void	sort_small(int size)
 {
 	if (!is_sorted(_lst()) && size == 2)
-		execute_movements(_lst(), b, "sa");
+		execute_movements(_lst(), NULL, "sa");
 	else if (!is_sorted(_lst()) && size == 3)
-		sort_three(_lst());
+		sort_three();
 	else if (!is_sorted(_lst()) && size <= 5)
-		sort_five(b);
+		sort_five();
 	else
 		return ;
 }

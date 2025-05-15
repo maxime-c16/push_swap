@@ -6,7 +6,7 @@
 #    By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 10:34:13 by mcauchy           #+#    #+#              #
-#    Updated: 2025/05/14 13:03:14 by macauchy         ###   ########.fr        #
+#    Updated: 2025/05/15 12:47:15 by macauchy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS	=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 
 NAME	=	push_swap
 
-CC		=	gcc
+CC		=	cc
 
 CFLAGS	=	-g3
 
@@ -38,7 +38,9 @@ HEADER	=	include/push_swap.h
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+			@make -C libft
+			@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+			@echo "Compiling $(NAME)..."
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
 				@mkdir -p $(OBJ_DIR)
@@ -47,7 +49,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
 
 debug:		$(OBJS)
 			@make -C libft -j > /dev/null
-			$(CC) $(CFLAGS) $(DEBUG) $(OBJS) $(LDFLAGS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(DEBUG) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 clean:
 			@make -C libft clean > /dev/null
