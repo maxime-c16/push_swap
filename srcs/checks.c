@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:19:39 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/14 12:58:57 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:19:14 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ static int	str_is_digit(char *str)
 
 	i = 0;
 	if (str[i] == '-')
-	{
 		i++;
-		if (str[i] == '0')
-			return (0);
-	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -37,7 +33,7 @@ static int	check_int_range(char *tab)
 	long	nb;
 
 	nb = ft_atol(tab);
-	if (nb > 2147483647 || nb < -2147483648)
+	if (nb == LONG_MAX)
 		return (1);
 	return (0);
 }
@@ -57,7 +53,8 @@ static int	check_duplicates(char **tab)
 			return (1);
 		while (tab[j])
 		{
-			if (!ft_strcmp(tab[i], tab[j]))
+			if (!ft_strcmp(tab[i], tab[j]) || \
+				ft_atoi(tab[i]) == ft_atoi(tab[j]))
 				return (1);
 			j++;
 		}
@@ -92,7 +89,7 @@ void	check_multiple(char **av, int ac)
 		}
 		while (j < ac)
 		{
-			if (!ft_strcmp(av[i], av[j]))
+			if (!ft_strcmp(av[i], av[j]) || ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
 				ft_putendl_fd("Error", 2);
 				exit(1);

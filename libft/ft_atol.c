@@ -3,36 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:58:24 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/02/16 11:59:20 by mcauchy          ###   ########.fr       */
+/*   Updated: 2025/05/15 13:11:39 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-long	ft_atol(const char *str)
+#define UPPER_DIGIT 7
+#define LOWER_DIGIT 8
+
+long ft_atol(const char *s)
 {
-	long	nb;
-	int		sign;
-	int		i;
+	int	value;
+	int	sign;
+	_Bool overflow;
 
-	nb = 0;
+	value = 0;
 	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	overflow = 0;
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '+' || *s == '-')
+		sign = 44 - *s++;
+	while (ft_isdigit(*s) && !overflow)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		value = value * 10 + *s++ - '0';
+		if (ft_isdigit(*s) && (value > INT_MAX / 10
+				|| (sign == 1 && value == INT_MAX / 10
+					&& *s - '0' > UPPER_DIGIT)
+				|| (sign == -1 && value == INT_MAX / 10
+					&& *s - '0' > LOWER_DIGIT)))
+			overflow = 1;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
-	return (nb * sign);
+	if (overflow)
+		return (LONG_MAX);
+	return (sign * value);
 }
