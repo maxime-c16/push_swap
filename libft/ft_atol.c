@@ -6,7 +6,7 @@
 /*   By: macauchy <macauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:58:24 by mcauchy           #+#    #+#             */
-/*   Updated: 2025/05/15 13:11:39 by macauchy         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:02:44 by macauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #define UPPER_DIGIT 7
 #define LOWER_DIGIT 8
 
-long ft_atol(const char *s)
+long	ft_atol(const char *s)
 {
-	int	value;
-	int	sign;
-	_Bool overflow;
+	int		value;
+	int		sign;
+	_Bool	overflow;
 
 	value = 0;
 	sign = 1;
